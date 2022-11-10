@@ -1,10 +1,10 @@
-//매터 바들
+//매터 바
 var Engine = Matter.Engine,
     World = Matter.World,
     Events = Matter.Events
     Bodies = Matter.Bodies;
      
-//다른 => 이라기보단 '우리(our) 바'라고 하는 게 맞겠다.
+//Our(나머지 모두? 가족이라는 것으로 이해) 바
 var engine;
 var world;
 var ball;
@@ -14,17 +14,17 @@ var cups = [];
 var studs = [];
 var bounds = [];
 
-//오디오 바
+//오비오 바
 var audio_contact_wall;
 var audio_contact_stud;
 
 function setup(){
 	
-	// 시작용 그래픽 엔진(Engine)묶음
+	// 그래픽 엔진 시작용
 	createCanvas(worldX, worldY);
 	
 	
-	// 오디오 엔진 
+	// 오디오 엔진 시작용
 	initAudio();
 	
 	// 물리엔진 시작용
@@ -33,15 +33,15 @@ function setup(){
 	ball = new Ball();
 	initCollisions();
 	
-	//스코어랑 라벨 붙임용
+	// 점수 라벨
 	score = 0;
 	newScore();
 	
-	//화면 크기를 기반으로 해서 열 및 행 간격 가져오기 바
+	// 화면 크기에 따라 열 및 행 간격 조정되기(새로고침 시)
 	var colSpace = width / cols;
 	var rowSpace = (height - ballRad - cupH) / rows;
 	
-	//파친코 스터드(Stud) 그리기
+	// 간격 띄운 스터그(못[징]) 그리기
 	for(var r = 0; r < rows; r ++){
 		for(var c = 0; c < cols; c ++){
 			var s;
@@ -54,7 +54,7 @@ function setup(){
 		}
 	}
 	
-	//받는 컵의 경계 일정히 그리기
+	// 컵(담기는 바구니) 경계 그리기
 	for(var i = 0; i < cols + 1; i++){
 		var b;
 		if(rows % 2 != 0){
@@ -66,11 +66,11 @@ function setup(){
 		bounds.push(b);
 	}
 	
-	// 바닥 경계면용
+	// 벽
 	var b = new Boundary(width/2, height + 49, width, 100);
 	bounds.push(b);
 	
-	// 벽 경게면용
+	// 바닥
 	var LW = new Boundary(-50, height/2, 100, height);
 	var RW = new Boundary(width + 50, height/2, 100, height);
 	bounds.push(LW);
@@ -78,7 +78,7 @@ function setup(){
 }
 
 
-//여태 한 거 다 화면에 종합해서 욱여넣음
+//그려지는 거 다때려박음 
 function draw(){
 	background(51);
 	Engine.update(engine, 1000 / 40);
@@ -98,7 +98,7 @@ function draw(){
 }
 
 
-//공 그리기용
+//공 그리기
 function mousePressed() {
 	if(!ball.dropped){
 		ball.drop();

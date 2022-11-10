@@ -1,4 +1,4 @@
-//JS 도움 바
+//JS Helper Vars
 var w  = window,
     d  = w.document,
     de = d.documentElement,
@@ -7,20 +7,20 @@ var w  = window,
     y  = w.innerHeight|| de.clientHeight|| db.clientHeight;
 
 
-//매터 충돌 필터 바 모음
+//Matter Collision Filters
 var collider_wall = 10;
 var collider_stud = 5;
 var collider_ball = 1;
     
-// 월드 치수
+// World Deminsions
 var worldX = x;
 var worldY = y;//900;
 
-//Stud js 그리드 정의
+//Stud Grid Definition
 var cols = 20;
 var rows = 10;
 
-// 오브젝트 사이즈 바들
+// Object Sizes
 var cupH = 100;
 var cupLabelSize = 24;
 var scoreLabelSize = 32;
